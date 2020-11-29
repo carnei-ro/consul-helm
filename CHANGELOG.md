@@ -1,5 +1,14 @@
 ## Unreleased
 
+IMPROVEMENTS:
+* Make `server.bootstrapExpect` optional. If not set, will now default to `server.replicas`.
+  If you're currently setting `server.replicas`, there is no effect. [[GH-721](https://github.com/hashicorp/consul-helm/pull/721)]
+
+BREAKING CHANGES:
+* Setting `server.bootstrapExpect` to a value less than `server.replicas` will now
+  give an error. This was a misconfiguration as the servers wouldn't wait
+  until the proper number have started before electing a leader. [[GH-721](https://github.com/hashicorp/consul-helm/pull/721)]
+
 ## 0.27.0 (Nov 25, 2020)
 
 IMPROVEMENTS:
