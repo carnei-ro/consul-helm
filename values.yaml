@@ -436,6 +436,11 @@ client:
   # This should be set to true if connectInject or meshGateway is enabled.
   grpc: true
 
+  # nodeMeta specifies an arbitrary metadata key/value pair to associate with the node 
+  # (see https://www.consul.io/docs/agent/options.html#_node_meta)
+  nodeMeta:
+    pod-name: ${HOSTNAME}
+
   # exposeGossipPorts exposes the clients' gossip ports as hostPorts.
   # This is only necessary if pod IPs in the k8s cluster are not directly
   # routable and the Consul servers are outside of the k8s cluster. This
